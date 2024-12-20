@@ -4,6 +4,12 @@ const mongoose = require('mongoose');
 const NodeCache = require('node-cache');
 const contactRoutes = require('./routes/contacts');
 const errorHandler = require('./middleware/errorHandler');
+const path = require('path');
+require('dotenv').config({
+  path: path.resolve(__dirname, `.env.${process.env.NODE_ENV || 'development'}`)
+});
+
+console.log(`Running in ${process.env.NODE_ENV || 'development'} mode`);
 
 const app = express();
 const cache = new NodeCache({ stdTTL: 300 }); // 5 minute cache

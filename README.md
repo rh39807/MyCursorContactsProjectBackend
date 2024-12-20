@@ -46,7 +46,30 @@
 + npm install
 + ```
 + 
-+ 3. Start the server:
++ 3. Create a `.env` file in the root directory (copy from .env.example):
++ 
++ ```bash
++ cp .env.example .env.development
++ cp .env.example .env.production
++ ```
++ 
++ Then update the environment files:
++ 
++ Development (.env.development):
++ 
++ ```
++ MONGO_URL=mongodb://localhost:27017/contacts
++ PORT=8080
++ ```
++ 
++ Production (.env.production):
++ 
++ ```
++ MONGO_URL=${MongoDB.MONGO_URL}
++ PORT=8080
++ ```
++ 
++ 4. Start the server:
 + 
 + ```
 + npm start
